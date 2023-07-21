@@ -1,12 +1,12 @@
 package fr.campus.donjon.equipements;
 
-public class EquipementDefensif {
+public abstract class EquipementDefensif {
     private String type; //équipement defensif (bouclier ou philtre).
-    //private String personnage; // à quel perso appartient t'il.
+    private int defenseplus;
 
-    public EquipementDefensif(String type){
+    public EquipementDefensif(String type, int defenseplus){
         this.type = type;
-        //this.personnage = personnage;
+        this.defenseplus = defenseplus;
     }
 
     @Override
@@ -14,5 +14,13 @@ public class EquipementDefensif {
         return "EquipementDefensif{" +
                 "type='" + type + '\'' +
                 '}';
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -1,13 +1,14 @@
 package fr.campus.donjon.affichage;
 
+import fr.campus.donjon.avatars.Guerriers;
+import fr.campus.donjon.avatars.Magiciens;
 import fr.campus.donjon.avatars.Personnage;
 
+import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
-
-
 
 
     public String enterNameChoice() {
@@ -44,17 +45,22 @@ public class Menu {
     public Personnage configPerso() {
         String nom = enterNameChoice();
         String type = enterTypeChoice();
-        Personnage perso = new Personnage(type, nom);
-        System.out.println(perso);
-        return perso;
-    }
+        if(type.equals("guerrier")){
+            Guerriers perso = new Guerriers(type, nom);
+            System.out.println(perso);
+            return perso;
+        }else{
+            Magiciens perso = new Magiciens(type, nom);
+            System.out.println(perso);
+            return perso;
+        }
+    };
 
 
     public void startGame() {
             int positionJoueur = 1; //position du joueur (1 à 64)
             int cases = 64; // index est a 0
             System.out.println("le joueur est à la case 1");
-
             while (positionJoueur < cases) {
                 int max = 6;
                 Random number = new Random();
@@ -62,7 +68,6 @@ public class Menu {
                 positionJoueur += dice;
                 System.out.println(positionJoueur);
             }
-
             Scanner playerChoice = new Scanner(System.in);
             System.out.println("Entrer votre choix N/Q");
             String choice = playerChoice.nextLine();
@@ -77,10 +82,8 @@ public class Menu {
 //                        Scanner playerChoices = new Scanner(System.in);
 //                        String choices = playerChoices.nextLine();
 //                        System.out.println("votre choix est : " + choices);
-
-                //}
+//                }
             }
     };
-
 };
 

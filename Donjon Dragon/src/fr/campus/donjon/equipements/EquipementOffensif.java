@@ -1,12 +1,12 @@
 package fr.campus.donjon.equipements;
 
-public class EquipementOffensif {
+public abstract class EquipementOffensif {
     private String type; //équipement offensif par défaut (arme ou sort).
-    //private String personnage; // à quel perso appartient t'il.
+    private int attackbonus;
 
-    public EquipementOffensif(String type) {
+    public EquipementOffensif(String type, int attackbonus) {
         this.type = type;
-        //this.personnage = personnage;
+        this.attackbonus = attackbonus;
     }
 
     @Override
@@ -14,5 +14,21 @@ public class EquipementOffensif {
         return "EquipementOffensif{" +
                 "type='" + type + '\'' +
                 '}';
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getAttackbonus() {
+        return attackbonus;
+    }
+
+    public void setAttackbonus(int attackbonus) {
+        this.attackbonus = attackbonus;
     }
 }

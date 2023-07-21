@@ -1,12 +1,14 @@
 package fr.campus.donjon.avatars;
 
+import fr.campus.donjon.equipements.Arme;
 import fr.campus.donjon.equipements.EquipementDefensif;
 import fr.campus.donjon.equipements.EquipementOffensif;
+import fr.campus.donjon.equipements.Sort;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class Personnage {
+public abstract class Personnage {
    private String type;
     private String nom;
     private int niveauDeVie;
@@ -17,21 +19,8 @@ public class Personnage {
     public Personnage(String type, String nom){
         this.type = type;
         this.nom = nom;
-
-        if (type.equals("guerrier")){
-            this.niveauDeVie = 10;
-            this.forceAttaque = 10;
-            this.equipementOf = new EquipementOffensif("arme");
-            this.equipementDef = new EquipementDefensif("bouclier");
-        } else if (type.equals("magicien")){
-            this.niveauDeVie = 6;
-            this.forceAttaque = 15;
-            this.equipementOf = new EquipementOffensif("sort");
-            this.equipementDef = new EquipementDefensif("philtre");
-        }else{
-            System.out.println("erreur veullier saisir guerrier ou magicien");
-        }
     }
+
 
     public String getType() {
         return type;
