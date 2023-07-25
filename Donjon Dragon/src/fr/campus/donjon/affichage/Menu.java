@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-
     public String enterNameChoice() {
         Scanner nameChoice = new Scanner(System.in);
         System.out.println("Entrer votre nom");
@@ -18,6 +17,7 @@ public class Menu {
         System.out.println("Ton nom est : " + nom);
         return nom;
     }
+
 
     public String enterTypeChoice() {
         Scanner typeChoice = new Scanner(System.in);
@@ -30,6 +30,7 @@ public class Menu {
         System.out.println("Ton type est : " + type);
         return type;
     }
+
 
     public int makeChoice() {
         System.out.println("1: création du personnage");
@@ -54,36 +55,6 @@ public class Menu {
             System.out.println(perso);
             return perso;
         }
-    };
-
-
-    public void startGame() {
-            int positionJoueur = 1; //position du joueur (1 à 64)
-            int cases = 64; // index est a 0
-            System.out.println("le joueur est à la case 1");
-            while (positionJoueur < cases) {
-                int max = 6;
-                Random number = new Random();
-                int dice = number.nextInt(max) + 1;
-                positionJoueur += dice;
-                System.out.println(positionJoueur);
-            }
-            Scanner playerChoice = new Scanner(System.in);
-            System.out.println("Entrer votre choix N/Q");
-            String choice = playerChoice.nextLine();
-            System.out.println("votre choix est : " + choice);
-            if (choice.equals("N")) {
-                startGame();
-            } else if (choice.equals("Q")) {
-                return;
-            } else {
-//                while (!playerChoice.equals("N") && !playerChoice.equals("Q")) {
-//                        System.out.println("Entrer votre choix N/Q");
-//                        Scanner playerChoices = new Scanner(System.in);
-//                        String choices = playerChoices.nextLine();
-//                        System.out.println("votre choix est : " + choices);
-//                }
-            }
-    };
-};
+    }
+}
 
